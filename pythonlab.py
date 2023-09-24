@@ -22,6 +22,8 @@ Enter marks for test3 : 48
 Average of best two test marks  out of three test’s marks is 46.5
 Palindrome Check & Digit Occurrence Count
 
+**********************************************************************
+
 1b)Develop a Python program to check whether a given number is palindrome or not and also count the number of occurrences of each digit in the input number.
 
 
@@ -48,6 +50,9 @@ Palindrome
 1 appears 2 times
 2 appears 2 times
 3 appears 1 times
+
+**********************************************************************
+
 
 Question 2
 Fibonacci Sequence
@@ -76,6 +81,9 @@ fn(5) = 3
 Enter a number : -1
 Error in input
 Binary to Decimal & Octal to Hexadecimal Conversion
+
+**********************************************************************
+
 
 2b)Develop a python program to convert binary to decimal, octal to hexadecimal using functions.
 
@@ -123,6 +131,10 @@ Enter a binary number : 10111001
 185
 Enter a octal number : 675
 1BD
+
+**********************************************************************
+
+
 Question 3
 Sentence Statistics
 Write a Python program that accepts a sentence and find the number of words, digits, uppercase letters and lowercase letters.
@@ -151,6 +163,9 @@ Enter a sentence : Rama went to Devaraja market to pick 2 kgs of vegetable
 This sentence has 11 words
 This sentence has 1 digits 2 upper case letters 42 lower case letters
 String Similarity
+
+**********************************************************************
+
 
 3b)Write a Python program to find the string similarity between two given strings.
 
@@ -188,6 +203,9 @@ Enter String 2
 Python Exercise
 Similarity between two said strings:
 0.9375
+
+**********************************************************************
+
 
 
 Question 4
@@ -274,6 +292,9 @@ Unsorted List
 Sorting using Merge Sort
 [65, 176, 265, 326, 359, 514, 613, 828, 868, 919]
 
+**********************************************************************
+
+
 Roman to Integer Conversion
 4b)Develop a Python program to check whether a given number is palindrome or not and also count the number of occurrences of each digit in the input number.
 
@@ -306,6 +327,10 @@ Enter a Roman Number : XVII
 
 Enter a Roman Number : MLXVI
 1066
+         
+**********************************************************************
+
+
 Question 5
 Check Phone Number
 Write a function called isphonenumber () to recognize a pattern 415-555-4242 without using regular expression and also write the code to recognize the same pattern using regular expression.
@@ -360,6 +385,9 @@ Using Regular Expression
 Invalid phone number
 Search Phone Number & Email
 
+**********************************************************************
+
+
 5b)Develop a python program that could search the text in a file for phone numbers (+919900889977) and email addresses (sample@gmail.com)
 
 Python Code
@@ -388,6 +416,9 @@ Output
 +829392938876
 +918768456234
 prakash81.82@gmail.in
+
+
+**********************************************************************
 
 
 Question 6
@@ -445,6 +476,9 @@ Enter the filename : example.txt
 Enter a word : the
 The word the appears 7 times in the file
 
+**********************************************************************
+
+
 Zip operation on a folder
 6b)Develop a program to backing Up a given Folder (Folder in a current working directory) into a ZIP File by using relevant modules and suitable methods.
 
@@ -475,6 +509,9 @@ else:
 Output
 Enter Directory name that you want to backup : zipDemo
 Archive myZip.zip created successfully
+
+**********************************************************************
+
 
 Question 7
 Inheritance
@@ -542,6 +579,9 @@ The area of the Circle is 78.53981633974483 units
 The area of the Rectangle is 20 units
 The area of the Triangle is 6.0 units
 
+**********************************************************************
+
+
 Employee Details
 7b)Write a python program by creating a class called Employee to store the details of Name, Employee_ID, Department and Salary, and implement a method to update salary of employees belonging to a given department.
 
@@ -592,7 +632,10 @@ Enter new Salary : 88800
 Updated Salary 88800
 
 
-Question 8
+Ques
+**********************************************************************
+
+ion 8
 Polymorphism and Inheritance
 Write a python program to find the whether the given input is palindrome or not (for both string and integer) using the concept of polymorphism and inheritance.
 
@@ -655,18 +698,13 @@ Given string is not a Palindrome
 Enter a integer : 6789876
 Given integer is a Palindrome
 
+**********************************************************************
 Question 9
 Download XKCD comics
 Write a python program to download the all XKCD comics
 
 Python Code
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Mar  9 13:02:47 2023
 
-@author: Prabodh C P
-"""
 
 import requests
 import os
@@ -723,7 +761,33 @@ Downloading https://imgs.xkcd.com/comics/fanservice.png...
 Downloading https://imgs.xkcd.com/comics/hand_dryers.png...
 
 
+**********************************************************************
+
+
 9a) 
+import re
+import requests
+from bs4 import BeautifulSoup
+site = 'https://www.codespeedy.com/'
+response = requests.get(site)
+soup = BeautifulSoup(response.text, 'html.parser')
+image_tags = soup.find_all('img')
+urls = [img['src'] for img in image_tags]
+for url in urls:
+    filename = re.search(r'/([\w_-]+[.](jpg|gif|png))$', url)
+    if not filename:
+         print("Regular expression didn't match with the url: {}".format(url))
+         continue
+    with open(filename.group(1), 'wb') as f:
+        if 'http' not in url:
+            url = '{}{}'.format(site, url)
+        response = requests.get(url)
+        f.write(response.content)
+print("Download complete, downloaded images can be found in current directory!")
+
+
+**********************************************************************
+
 
 Spreadsheet Operations
 9b)Demonstrate python program to read the data from the spreadsheet and write the data in to the spreadsheet
@@ -802,6 +866,9 @@ Corresponding capital for code KA is Bengaluru
 Enter state code for finding language TS
 Corresponding language for code TS is Telugu
 
+**********************************************************************
+
+
 Question 10
 Merge selected pages from Multiple PDFs to a new PDF
 Write a python program to combine select pages from many PDFs
@@ -829,6 +896,9 @@ pdf_writer.add_page(page)
 with open('output.pdf', 'wb') as output:
     pdf_writer.write(output)
 Output
+
+**********************************************************************
+
 
 
 Fetch weather data from the JSON
